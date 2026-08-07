@@ -213,6 +213,9 @@ const PTZCmd VISCA_CommandCancel("8120ff", {new visca_u4("socket", 1)});
 const PTZCmd VISCA_CAM_Power("8101040000ff", {new visca_flag("power_on", 4)}, "power_on");
 const PTZInq VISCA_CAM_PowerInq("81090400ff", {new visca_flag("power_on", 2)});
 
+const PTZCmd VISCA_CAM_AutoTracking_On("810A0201870102FF");
+const PTZCmd VISCA_CAM_AutoTracking_Off("810A0201870103FF");
+
 const PTZCmd VISCA_CAM_Zoom_Stop("8101040700ff", "zoom_pos");
 const PTZCmd VISCA_CAM_Zoom_Tele("8101040702ff", "zoom_pos");
 const PTZCmd VISCA_CAM_Zoom_Wide("8101040703ff", "zoom_pos");
@@ -912,4 +915,10 @@ void PTZVisca::memory_set(int i)
 void PTZVisca::memory_recall(int i)
 {
 	send(VISCA_CAM_Memory_Recall, {i});
+}
+
+void PTZVisca::set_autotracking(bool enabled)
+{
+	send(enabled ? VISCA_CAM_AutoTracking_On : VISCA_CAM_AutoTracking_On);
+	obs_data_set_bool(settings, "auto_tracking_enabled", enabled);
 }

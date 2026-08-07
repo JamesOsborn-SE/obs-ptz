@@ -878,6 +878,12 @@ void PTZControls::on_focusButton_auto_clicked(bool checked)
 	callCurrentDevice("ptz_set", "focus_af_enabled", checked);
 }
 
+void PTZControls::on_auto_tracking_clicked(bool checked)
+{
+	setAuto(checked);
+	callCurrentDevice("ptz_set", "auto_tracking_enabled", checked);
+}
+
 void PTZControls::on_focusButton_near_pressed()
 {
 	setFocus(1);
@@ -910,6 +916,13 @@ void PTZControls::setAutofocusEnabled(bool autofocus_on)
 	ui->focusButton_far->setEnabled(!autofocus_on);
 	ui->focusButton_onetouch->setEnabled(!autofocus_on);
 }
+
+void PTZControls::setAutotrackingEnabled(bool autotracking_on)
+{
+	ui->tackingButton_auto->setChecked(autotracking_on);
+}
+
+
 
 void PTZControls::updateMoveControls()
 {

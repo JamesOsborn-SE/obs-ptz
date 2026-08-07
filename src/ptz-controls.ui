@@ -409,6 +409,26 @@
           </property>
          </widget>
         </item>
+        <item row="3" column="4">
+         <widget class="QToolButton" name="tackingButton_auto">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toggle Autotracking On/Off&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="icon">
+           <iconset resource="ptz-controls.qrc">
+            <normaloff>:/icons/icons/tracking_auto.svg</normaloff>:/icons/icons/tracking_auto.svg</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="CircularListView" name="cameraList">
